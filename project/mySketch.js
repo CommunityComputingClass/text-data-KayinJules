@@ -17,7 +17,7 @@ function setup() {
 function draw() {
   background(50);
   for (let i=0; i<dogs.length; i++){
-    dogs [i].draw.dog()
+    dogs [i].drawdog()
   }
   noStroke();
   fill(255);
