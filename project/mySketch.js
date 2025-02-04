@@ -5,14 +5,21 @@ let ymove = 5
 let xmove = 5
 let dogpic;
 let dogs = []
+let dogimgs = []
 
 let myFont;
 function preload(){
   myFont = loadFont("ATHEROSSER.ttf")
-  dogpic = loadImage('dogphoto.png');
+  dogpic1 = loadImage('dogphoto.png');
+ let dogpic2 = loadImage('dogphoto2.png');
+  let dogpic3 = loadImage('dogphoto3.png');
+  dogimgs.push (dogpic1)
+  dogimgs.push (dogpic2)
+  dogimgs.push (dogpic3)
 }
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(1000, 1000);
+  console.log (dogimgs)
 }
 function draw() {
   background(50);
@@ -50,7 +57,7 @@ function draw() {
 }
 function keyPressed(){
 if (key === '1'){
-  let d =new dog(50,50)
+  let d =new dog(random(0,400),random(0,400))
   dogs.push (d)
   }
 }
@@ -58,9 +65,15 @@ class dog {
   constructor(x,y){
   this.x = x
   this.y = y
+  this.rot = random(0,360)
+  this.img = dogimgs[int(random(0,3))]
   }
   drawdog (){
-    image(dogpic, this.x, this.y)
+    push()
+    translate(100,100);
+    rotate(this.rot)
+    image (this.img,this.x, this.y, 100,100)
+    pop()
   }
   
 }
