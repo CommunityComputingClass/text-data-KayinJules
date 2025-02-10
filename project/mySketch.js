@@ -20,6 +20,7 @@ function preload(){
 function setup() {
   createCanvas(1000, 1000);
   console.log (dogimgs)
+  imageMode(CENTER)
 }
 function draw() {
   background(50);
@@ -57,22 +58,22 @@ function draw() {
 }
 function keyPressed(){
 if (key === '1'){
-  let d =new dog(random(0,400),random(0,400))
+  let d =new dog()
   dogs.push (d)
   }
 }
 class dog {
-  constructor(x,y){
-  this.x = x
-  this.y = y
+  constructor(){
+  this.x = random(0,400)
+  this.y = random(0,400)
   this.rot = random(0,360)
   this.img = dogimgs[int(random(0,3))]
   }
   drawdog (){
     push()
-    translate(100,100);
+    translate(this.x,this.y);
     rotate(this.rot)
-    image (this.img,this.x, this.y, 100,100)
+    image (this.img,0, 0,100,100,)
     pop()
   }
   
