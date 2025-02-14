@@ -37,7 +37,7 @@ function preload(){
   animalimgs.push (catpic7)
 }
 function setup() {
-  createCanvas(1000, 1000);
+  createCanvas(400, 500);
   console.log (animalimgs)
   imageMode(CENTER)
 
@@ -159,3 +159,4 @@ class animal {
     pop()
   }
 }
+ 
